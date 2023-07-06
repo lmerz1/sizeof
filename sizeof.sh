@@ -15,13 +15,11 @@ function sizeof()
         if [ "$powersof" -eq 1000 ]; then
             # du --si -s is equivalent to -d 0:
             du --si -s "$passed_name"|awk '{ print substr($1,0,(length($1)-1)), substr($1,length($1),1) "B" }'
-        else
+        else # 1024
             du -sh "$passed_name"|awk '{ print substr($1,0,(length($1)-1)), substr($1,length($1),1) "B" }'
         fi
     elif [ -f "$passed_name" ]; then # is a file
-
         filesize=$(echo $(wc -c < "$passed_name"))
-
         i=0
         s=" kMGTPEZY" # lowercase k to imitate behavior of `du` for the sake of consistency
         while [ $filesize -gt "$powersof" ]; do
