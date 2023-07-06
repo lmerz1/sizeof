@@ -7,11 +7,11 @@ function sizeof()
 
     passed_name="$1"
 
-    if   [ -d "$passed_name" ] || [ -z "$passed_name" ]; then # is a directory or we default to current pwd
-        if [ -z "$passed_name" ]; then
-            passed_name="." # fallback to pwd
-        fi
+    if [ -z "$passed_name" ]; then
+        passed_name="." # fallback to pwd
+    fi
 
+    if   [ -d "$passed_name" ]; then # is a directory or we default to current pwd
         if [ "$powersof" -eq 1000 ]; then
             # du --si -s is equivalent to -d 0:
             du --si -s "$passed_name"|awk '{ print substr($1,0,(length($1)-1)), substr($1,length($1),1) "B" }'
