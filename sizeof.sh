@@ -23,7 +23,7 @@ function sizeof()
         filesize=$(echo $(wc -c < "$passed_name"))
 
         i=0
-        s=" kMGTPEZY" # lowercase k to imitate behavior of du for the sake of consistency
+        s=" kMGTPEZY" # lowercase k to imitate behavior of `du` for the sake of consistency
         while [ $filesize -gt "$powersof" ]; do
             i=$((i+1))
             filesize=$((filesize/powersof))
