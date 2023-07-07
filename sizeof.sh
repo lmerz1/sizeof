@@ -5,7 +5,7 @@ function sizeof()
     if [ -z "$2" ]; then
         powersof=1000 # Regular person's default. Linux extremists might want to change this to 1024. ;)
     else
-        if [ "$2" != 1024 ] && [ "$2" != 1000 ] ; then
+        if [ "$2" -ne 1024 ] && [ "$2" -ne 1000 ] ; then
             echo "Change the code if you would like to use a \"base\" different from 1000 or 1024."
             exit 2
         fi
@@ -50,7 +50,7 @@ function sizeof()
             filesize=$((filesize/powersof))
         done
 
-        if [ "$filesize" = "0" ]; then
+        if [ "$filesize" -eq 0 ]; then
             # use different formatting than default if the file is empty
             echo "0 B"
         else
