@@ -47,7 +47,7 @@ In particular, my current use of the `function` keyword is not POSIX-compliant.
 You can set the "unit" suffixes to be multiples of 1000 or 1024 (Kilo/Mega/Giga/etc. vs. Kibi/Mebi/Gibi/etc.) by changing the first variable's value or passing an optional argument.
 ```
 $ si some-dir
-93 MB  # uses default of 1000
+389 MB  # uses default of 1000
 $ si some-dir 1024
-88 MB
+371 MB
 ```
