@@ -16,7 +16,6 @@ function sizeof()
             1000)
                 # du --si -s is equivalent to -d 0:
                 dirsizestring=$(du --si -s "$passed_name")
-                #formatted_dirsizestring="$(dirsizestring"|awk '{ print substr($1,0,(length($1)-1)), substr($1,length($1),1) "B" }')
                 formatted_dirsizestring=$(echo "$dirsizestring"|awk '{ print substr($1,0,(length($1)-1)), substr($1,length($1),1) "B" }')
                 ;;
             1024)
@@ -60,8 +59,8 @@ function sizeof()
             echo "$formatted_filesize"
         fi
 
-    else echo "\"$passed_name\" is not valid";
-        exit 1  ## not exiting the (main) shell session here due to this function being defined within .*shrc files
+    else
+        echo "\"$passed_name\" is not valid";
     fi
 }
 
