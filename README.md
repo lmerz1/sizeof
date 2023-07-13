@@ -56,5 +56,5 @@ $ si some-dir 1024
 252 MiB
 ```
 
-Abbreviated values for decimal/binary bases follow the symbols used [here](https://en.wikipedia.org/wiki/Byte): kB, MB, GB, …; KiB, MiB, GiB, …
+Abbreviated values for decimal/binary bases follow the symbols used [here](https://en.wikipedia.org/wiki/Byte#Multiple-byte_units): kB, MB, GB, …; KiB, MiB, GiB, …
 
