@@ -1,12 +1,22 @@
-#!/bin/zsh
+#!/bin/sh
 
-function sizeof()
+sizeof()
 {
     default=1000
     base=${2:-"$default"} # Regular person's default is 1000. Linux extremists might want to change this to 1024. ;)
     if [ "$base" -ne 1000 ] && [ "$base" -ne 1024 ]; then
         echo "Invalid base \"$base\". Please use either 1000 or 1024."
         exit 2
+    fi
+
+    if [ "$1" = "-h" ] || [ "$1" = "--help" ]
+    then
+        echo "si(zeof): a utility for readable file sizes"
+        echo ""
+        echo "Usage:"
+        echo "\$1: /path/to/file or directory (defaults to . if empty)"
+        echo "\$2: [optional] 1000 or 1024 as the unit base (defaults to 1000)"
+        exit 0
     fi
 
     passed_name=${1:-"."} # Default to pwd if not specified
